@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home",
+    "guilds": "Guilds",
+    "about": "About"
+  },
+  "footer": {
+    "credits": "from the Workshop Guild"
+  }
+}

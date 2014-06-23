@@ -21,42 +21,33 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="ui three column page grid">
-      <div class="ui fluid menu">
-        <a class="active red item" ng-href="/">
-          <i class="home icon"></i> Home
+    <div class="ui page grid">
+      <div class="ui fluid menu" ng-controller="NavigationCtrl">
+        <a class="red item" ng-href="#/" ng-class="{active: isActive('/')}">
+          <span ng-bind=" 'nav.home' | i18n "></span><i class="home icon"></i>
         </a>
-        <a class="red item" ng-href="/guilds">
-          <i class="beer icon"></i> Guilds
+        <a class="red item" ng-href="#/guilds" ng-class="{active: isActive('/guilds')}">
+          <span ng-bind=" 'nav.guilds' | i18n "></span><i class="beer icon"></i>
         </a>
-        <a class="red item" ng-href="/about">
-          <i class="info icon"></i> About
+        <a class="red item" ng-href="#/about" ng-class="{active: isActive('/about')}">
+          <span ng-bind=" 'nav.about' | i18n "></span><i class="info icon"></i>
         </a>
-        <a class="item floated right">
-        <img class="ui circular mini image"ng-src="{{userProfilePicture}}" alt="">Logged in as {{username}}
+        <a class="item floated right" ng-href="#/login" ng-if="!loggedIn">
+          <span ng-bind=" 'nav.login' | i18n ">
         </a>
-      </div>
-      <div class="column"></div>
-      <div class="column">
-        <div ng-view=""></div>
-      </div>
-      <div class="column"></div>
-      <!--
-      <div class="header">
-        <ul class="ui menu">
-          <li class="active item"><a ng-href="#">Home</a></li>
-          <li class="item"><a ng-href="#/about">About</a></li>
-          <li class="item"><a ng-href="#">Contact</a></li>
-        </ul>
-      </div> -->
-      <h3 class="text-muted">landing</h3>
-      <!-- <div ng-view=""></div> -->
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <a ng-href="" class="item floated right" ng-if="loggedIn">
+          <img class="ui circular avatar image" style="display: inline-block; padding: auto;" ng-src="{{userProfilePicture}}" alt="">{{ username }}
+        </a>
       </div>
     </div>
 
+    <div class="ui page grid">
+      <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+      <p><i class="heart icon"></i><span ng-bind=" 'footer.credits' | i18n "></span></p>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -89,8 +80,12 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/guild.js"></script>
+        <script src="scripts/controllers/home.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/filters/i18n.js"></script>
+        <script src="scripts/services/i18nservice.js"></script>
         <!-- endbuild -->
 </body>
 </html>

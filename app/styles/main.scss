@@ -1,12 +1,16 @@
 // bower:scss
 // endbower
 
+@import "compass";
+
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato|Open+Sans);
 
-$font-stack: Open Sans, Lato, Droid Sans, Source Sans Pro, Helvetica, sans-serif;
+$sansFontFamily: Open Sans, Lato, Droid Sans, Source Sans Pro, Helvetica, sans-serif;
+$serifFontFamily: Helvetica;
+$monoFontFamily: Helvetica;
 
 body {
-  font: 100% $font-stack;
+  font: 100% $sansFontFamily;
 }
 
 .browsehappy {
@@ -20,6 +24,7 @@ body {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  @include background(image-url("crossword.png"));
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

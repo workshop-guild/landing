@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "guilds": "ギルド",
+    "about": "アバウト"
+  },
+  "footer": {
+    "credits": "Workshop Guild から"
+  }
+}
