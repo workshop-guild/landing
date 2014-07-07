@@ -8,12 +8,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <link rel="stylesheet" href="bower_components/semantic-ui/build/packaged/css/semantic.min.css">
   </head>
   <body ng-app="landingApp">
     <!--[if lt IE 7]>
@@ -21,32 +21,42 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="ui page grid">
-      <div class="ui fluid menu" ng-controller="NavigationCtrl">
-        <a class="red item" ng-href="#/" ng-class="{active: isActive('/')}">
-          <span ng-bind=" 'nav.home' | i18n "></span><i class="home icon"></i>
-        </a>
-        <a class="red item" ng-href="#/guilds" ng-class="{active: isActive('/guilds')}">
-          <span ng-bind=" 'nav.guilds' | i18n "></span><i class="beer icon"></i>
-        </a>
-        <a class="red item" ng-href="#/about" ng-class="{active: isActive('/about')}">
-          <span ng-bind=" 'nav.about' | i18n "></span><i class="info icon"></i>
-        </a>
-        <a class="item floated right" ng-href="#/login" ng-if="!loggedIn">
-          <span ng-bind=" 'nav.login' | i18n ">
-        </a>
-        <a ng-href="" class="item floated right" ng-if="loggedIn">
-          <img class="ui circular avatar image" style="display: inline-block; padding: auto;" ng-src="{{userProfilePicture}}" alt="">{{ username }}
-        </a>
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills" ng-controller="NavigationCtrl">
+          <li ng-class="{active: isActive('/')}">
+            <a ng-href="#/">
+              <i class="fa fa-home"></i> <span ng-bind=" 'home' | i18n "></span>
+            </a>
+          </li>
+          <li ng-class="{active: isActive('/guilds')}">
+            <a ng-href="#/guilds">
+              <i class="glyphicon glyphicon-tower"></i> <span ng-bind=" 'guilds' | i18n "></span>
+            </a>
+          </li>
+          <li ng-class="{active: isActive('/about')}">
+            <a ng-href="#/about">
+              <i class="fa fa-info-circle"></i> <span ng-bind=" 'about' | i18n "></span>
+            </a>
+          </li>
+          <li class="pull-right" ng-class="{active: isActive('/login')}" ng-if="loggedIn">
+            <a ng-href="#/login">
+              <span ng-bind=" 'login' | i18n "></span>
+            </a>
+          </li>
+          <li class="pull-right" ng-class="{active: isActive('/profile')}" ng-if="!loggedIn">
+            <a ng-href="#/profile" style="padding: 0.44em 2em;">
+              {{ username }} <img class="img-circle" style="max-height: 2em; padding: 0em;" ng-src="{{userProfilePicture}}" alt="">
+            </a>
+          </li>
+         </ul>
       </div>
-    </div>
 
-    <div class="ui page grid">
       <div ng-view=""></div>
-    </div>
 
-    <div class="footer">
-      <p><i class="heart icon"></i><span ng-bind=" 'footer.credits' | i18n "></span></p>
+      <div class="footer">
+        <p><i class="glyphicon glyphicon-heart"></i> {{ 'credits' | i18n }}</p>
+      </div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -69,6 +79,18 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -86,6 +108,9 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/filters/i18n.js"></script>
         <script src="scripts/services/i18nservice.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
+        <script src="scripts/controllers/navigation.js"></script>
         <!-- endbuild -->
 </body>
 </html>

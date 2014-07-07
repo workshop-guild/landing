@@ -13,7 +13,7 @@ angular.module('landingApp')
 
     var resolveFn = function(path, dictionary){
       if (path.length === 1){
-        return dictionary[path[0]];
+        return dictionary[path[0]] || path[0];
       } else {
         var key = path.shift();
         return resolveFn(path, dictionary[key]);

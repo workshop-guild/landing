@@ -1,10 +1,9 @@
 {
-  "nav": {
-    "home": "Home",
-    "guilds": "Guilds",
-    "about": "About"
-  },
-  "footer": {
-    "credits": "from the Workshop Guild"
-  }
+  "home": "Home",
+  "guilds": "Guilds",
+  "about": "About",
+  "login": "Log In",
+  "email": "Email",
+  "password": "Password",
+  "credits": "from the Workshop Guild"
 }

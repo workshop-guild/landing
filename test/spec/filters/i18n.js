@@ -11,9 +11,9 @@ describe('Filter: i18n', function () {
     i18n = $filter('i18n');
   }));
 
-  it('should return the input prefixed with "i18n filter:"', function () {
-    var text = 'angularjs';
-    expect(i18n(text)).toBe('i18n filter: ' + text);
+  it('should return Log In', function () {
+    var text = 'login';
+    expect(i18n(text)).toBe('Log In');
   });
 
 });

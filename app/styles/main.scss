@@ -1,17 +1,11 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 // bower:scss
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
 @import "compass";
 
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro|Droid+Sans|Lato|Open+Sans);
-
-$sansFontFamily: Open Sans, Lato, Droid Sans, Source Sans Pro, Helvetica, sans-serif;
-$serifFontFamily: Helvetica;
-$monoFontFamily: Helvetica;
-
-body {
-  font: 100% $sansFontFamily;
-}
+@import url(http://fonts.googleapis.com/css?family=Roboto|Open+Sans);
 
 .browsehappy {
   margin: 0.2em 0;

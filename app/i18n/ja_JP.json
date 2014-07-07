@@ -1,10 +1,9 @@
 {
-  "nav": {
-    "home": "ホーム",
-    "guilds": "ギルド",
-    "about": "アバウト"
-  },
-  "footer": {
-    "credits": "Workshop Guild から"
-  }
+  "home": "ホーム",
+  "guilds": "ギルド",
+  "about": "アバウト",
+  "login": "ログイン",
+  "email": "メールアドレス",
+  "password": "パスワード"
+  "credits": "Workshop Guild"
 }
