@@ -1,5 +1,20 @@
-<div class="container">
-  <div class="row">
-    <p>This is the guilds view.</p>
+<div class="row" ng-controller="GuildCtrl">
+  <!-- guild splash -->
+  <div class="col-md-10">
+    <div style="height: 305px;">
+      <carousel interval="myInterval" disable-animation="true">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <h4>Slide {{$index}}</h4>
+            <p>{{slide.text}}</p>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+  <!-- guild functions -->
+  <div class="col-md-2">
+    Testing 2
   </div>
 </div>

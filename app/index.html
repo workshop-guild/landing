@@ -39,12 +39,12 @@
               <i class="fa fa-info-circle"></i> <span ng-bind=" 'about' | i18n "></span>
             </a>
           </li>
-          <li class="pull-right" ng-class="{active: isActive('/login')}" ng-if="loggedIn">
+          <li class="pull-right" ng-class="{active: isActive('/login')}" ng-if="!loggedIn">
             <a ng-href="#/login">
               <span ng-bind=" 'login' | i18n "></span>
             </a>
           </li>
-          <li class="pull-right" ng-class="{active: isActive('/profile')}" ng-if="!loggedIn">
+          <li class="pull-right" ng-class="{active: isActive('/profile')}" ng-if="loggedIn">
             <a ng-href="#/profile" style="padding: 0.44em 2em;">
               {{ username }} <img class="img-circle" style="max-height: 2em; padding: 0em;" ng-src="{{userProfilePicture}}" alt="">
             </a>
@@ -98,6 +98,7 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -112,6 +113,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/controllers/navigation.js"></script>
+        <script src="scripts/directives/disable-animation.js"></script>
         <!-- endbuild -->
 </body>
 </html>
