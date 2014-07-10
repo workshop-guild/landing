@@ -11,18 +11,16 @@
 angular.module('landingApp')
   .filter('i18n', function (i18nService) {
 
-    var resolveFn = function(path, dictionary){
-      if (path.length === 1){
-        return dictionary[path[0]] || path[0];
-      } else {
-        var key = path.shift();
-        return resolveFn(path, dictionary[key]);
+    var resolveFn = function(path, depth, dictionary){
+      if (depth === path.length - 1){
+        return dictionary[path[depth]] || path[depth];
       }
+      return resolveFn(path, ++depth, dictionary[path[depth]]);
     };
 
     return function (input) {
       var path = input.split('.');
       var dictionary = i18nService.getDictionary();
-      return resolveFn(path, dictionary);
+      return resolveFn(path, 0, dictionary);
     };
   });
