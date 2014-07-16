@@ -10,6 +10,22 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 /* for angular ui.bootstrap */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.page {
+  @extend .row;
+}
+
+.guild-block {
+  @extend .col-md-6;
+}
+
+.main-content {
+  @extend .col-md-12;
+}
+
+.content-side {
+
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
