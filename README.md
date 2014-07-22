@@ -25,6 +25,7 @@ $ npm install -g yo
 $ npm install -g grunt-cli bower
 $ npm install -g generator-karma generator-angular
 $ bower install
+$ npm install
 
 // All required packages should be downloaded now.
 $ grunt serve
