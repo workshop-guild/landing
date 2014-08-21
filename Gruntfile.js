@@ -385,6 +385,15 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Generate ngdocs
+    ngdocs: {
+      all: ['app/**/*.js']
+      // options: {
+      //   dest: 'docs',
+      //   scripts: ''
+      // }
     }
   });
 
@@ -438,5 +447,9 @@ module.exports = function (grunt) {
     'newer:jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('doc', [
+    'ngdocs'
   ]);
 };
