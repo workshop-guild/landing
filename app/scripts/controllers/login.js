@@ -8,7 +8,7 @@
  * Controller of the landingApp
  */
 angular.module('landingApp')
-  .controller('LoginCtrl', function ($scope, $http) {
+  .controller('LoginCtrl', function ($scope, $http, $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,7 +16,7 @@ angular.module('landingApp')
     ];
       
       $scope.login = function(){
-          console.log("hehe");
+          console.log("Doing Login Call");
           var username = $scope.email;
           var password = $scope.password;
           console.log($scope.email);
@@ -33,11 +33,15 @@ angular.module('landingApp')
                 console.log('success cb');
                 console.log(data);
                 console.log(status);
-                if (status == 0) {
-                    
+                if (status == 200) {
+                    if (data.status == 0) {
+                        $location.path('#/');
+                        $scope.$apply();
+                        
+                    }
                 }
                 else {
-                    //alert('login error: ' + status);   
+                    console.log('Login Error: ' + data.errno);
                 }
           })
           .error(function(data, status, headers, config) {
