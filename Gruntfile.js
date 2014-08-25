@@ -49,7 +49,8 @@ module.exports = function (grunt) {
         tasks: ['compass:server', 'autoprefixer']
       },
       gruntfile: {
-        files: ['Gruntfile.js']
+        files: ['Gruntfile.js'],
+        tasks: ['ngconstant:development']
       },
       livereload: {
         options: {
@@ -394,6 +395,25 @@ module.exports = function (grunt) {
       //   dest: 'docs',
       //   scripts: ''
       // }
+    },
+
+    // ng Constants for different environments
+    ngconstant: {
+      options: {
+        name: 'landingApp'
+      },
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js'
+        },
+        constants: '<%= yeoman.app %>/config/development.json'
+      },
+      production: {
+        options:{
+          dest: '<%= yeoman.dist %>/scripts/config.js'
+        },
+        constants: '<%= yeoman.dist %>/config/production.json'
+      }
     }
   });
 
@@ -428,6 +448,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

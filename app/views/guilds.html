@@ -1,9 +1,11 @@
 <div class="page" ng-controller="GuildCtrl">
-  <div class="guild-block" ng-repeat="guild in guilds">
-    <h2>{{ guild.name }}</h2>
-    <p>{{ guild.description }}</p>
-    <p>
-      <a class="btn btn-default" ng-href="{{ guild.link }}">Go to guild page!</a>
-    </p>
-  </div>
+  <section>
+    <div class="guild-block" ng-repeat="guild in guilds">
+      <h2>{{ guild.name }}</h2>
+      <p>{{ guild.description }}</p>
+      <p>
+        <a class="btn btn-default" ng-href="{{ guild.link }}">Go to guild page!</a>
+      </p>
+    </div>
+  </section>
 </div>

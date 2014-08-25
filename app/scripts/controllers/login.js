@@ -14,13 +14,13 @@ angular.module('landingApp')
       'AngularJS',
       'Karma'
     ];
-      
-      $scope.login = function(){
-          console.log("hehe");
-          var username = $scope.email;
-          var password = $scope.password;
-          console.log($scope.email);
-          console.log($scope.password);
-          $resource('http://localhost:8080/login').get();
-      };
+
+    $scope.login = function(){
+        console.log('hehe');
+        //var username = $scope.email;
+        //var password = $scope.password;
+        console.log($scope.email);
+        console.log($scope.password);
+        $resource('http://localhost:8080/login').get();
+    };
   });

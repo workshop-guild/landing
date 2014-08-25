@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <!-- <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"> -->
   </head>
   <body ng-app="landingApp">
     <!--[if lt IE 7]>
@@ -22,41 +23,48 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills" ng-controller="NavigationCtrl">
-          <li ng-class="{active: isActive('/')}">
-            <a ng-href="#/">
-              <i class="fa fa-home"></i> <span ng-bind=" 'home' | i18n "></span>
-            </a>
-          </li>
-          <li ng-class="{active: isActive('/guilds')}">
-            <a ng-href="#/guilds">
-              <i class="glyphicon glyphicon-tower"></i> <span ng-bind=" 'guilds' | i18n "></span>
-            </a>
-          </li>
-          <li ng-class="{active: isActive('/about')}">
-            <a ng-href="#/about">
-              <i class="fa fa-info-circle"></i> <span ng-bind=" 'about' | i18n "></span>
-            </a>
-          </li>
-          <li class="pull-right" ng-class="{active: isActive('/login')}" ng-if="!loggedIn">
-            <a ng-href="#/login">
-              <span ng-bind=" 'login' | i18n "></span>
-            </a>
-          </li>
-          <li class="pull-right" ng-class="{active: isActive('/profile')}" ng-if="loggedIn">
-            <a ng-href="#/profile" style="padding: 0.44em 2em;">
-              {{ username }} <img class="img-circle" style="max-height: 2em; padding: 0em;" ng-src="{{userProfilePicture}}" alt="">
-            </a>
-          </li>
-         </ul>
-      </div>
+
+      <header>
+        <h3>KTS Landing Page</h3>
+      </header>
+
+      <ul class="nav nav-pills" ng-controller="NavigationCtrl">
+        <li ng-class="{active: isActive('/')}">
+          <a ng-href="#/">
+            <i class="fa fa-home"></i> <span ng-bind=" 'home' | i18n "></span>
+          </a>
+        </li>
+        <li ng-class="{active: isActive('/guilds')}">
+          <a ng-href="#/guilds">
+            <i class="glyphicon glyphicon-tower"></i> <span ng-bind=" 'guilds' | i18n "></span>
+          </a>
+        </li>
+        <li ng-class="{active: isActive('/about')}">
+          <a ng-href="#/about">
+            <i class="fa fa-info-circle"></i> <span ng-bind=" 'about' | i18n "></span>
+          </a>
+        </li>
+        <li class="pull-right" ng-class="{active: isActive('/login')}" ng-if="!loggedIn">
+          <a ng-href="#/login">
+            <span ng-bind=" 'login' | i18n "></span>
+          </a>
+        </li>
+        <li class="pull-right" ng-class="{active: isActive('/profile')}" ng-if="loggedIn">
+          <a ng-href="#/profile" style="padding: 0.44em 2em;">
+            {{ username }} <img class="img-circle" style="max-height: 2em; padding: 0em;" ng-src="{{userProfilePicture}}" alt="">
+          </a>
+        </li>
+      </ul>
 
       <div ng-view=""></div>
 
-      <div class="footer">
-        <p><i class="glyphicon glyphicon-heart"></i> {{ 'credits' | i18n }}</p>
-      </div>
+      <footer>
+        <i class="fa fa-slack fa-3x"></i>
+        <i class="fa fa-github fa-3x"></i>
+        <i class="fa fa-trello fa-3x"></i>
+        <p><i class="glyphicon glyphicon-heart"></i> <span ng-bind=" 'credits' | i18n "></span></p>
+      </footer>
+
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -102,18 +110,18 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/guild.js"></script>
-        <script src="scripts/controllers/home.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/filters/i18n.js"></script>
-        <script src="scripts/services/i18nservice.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/profile.js"></script>
-        <script src="scripts/controllers/navigation.js"></script>
-        <script src="scripts/directives/disable-animation.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/guild.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/filters/i18n.js"></script>
+    <script src="scripts/services/i18nservice.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/controllers/navigation.js"></script>
+    <script src="scripts/directives/disable-animation.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
