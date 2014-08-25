@@ -8,11 +8,35 @@
  * Controller of the landingApp
  */
 angular.module('landingApp')
-  .controller('NavigationCtrl', function($scope, $location){
+  .controller('NavigationCtrl', function($scope, $location, $http){
     $scope.isActive = function(route){
       return route === $location.path();
     };
-    $scope.userProfilePicture = 'http://codescaling.files.wordpress.com/2013/08/screen-shot-2013-08-23-at-16-20-07.png';
-    $scope.loggedIn = false;
-    $scope.username = 'Leon';
+      
+    $http({
+        method: 'GET', 
+        url: 'http://localhost:8080/api/profile/me'
+    })
+    .success(function(data, status, headers, config) {
+        console.log('success cb');
+        console.log(data);
+        console.log('status:' + status);
+        if (status == 200) {
+            if (data.status == 0) {
+                var myDoc = data.data;
+                
+                $scope.userProfilePicture = 'http://localhost:8080/profile/967739706/profile.jpg';
+                $scope.loggedIn = true;
+                $scope.username = myDoc._id;
+            }
+        }
+        else {
+            //alert('login error: ' + status);   
+        }
+    })
+    .error(function(data, status, headers, config) {
+        console.log('error cb');
+        console.log(data);
+        console.log(status);
+    });
   });
