@@ -34,3 +34,10 @@ $ npm install
 // All required packages should be downloaded now.
 $ grunt serve
 ```
+
+How to use Git Extensions and Git-Flow on Windows
+============================================
+
+https://github.com/gitextensions/gitextensions
+https://github.com/nvie/gitflow/wiki/Windows
+https://github.com/nvie/gitflow/issues/233
