@@ -4,30 +4,45 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // endbower
 
 @import "compass";
+@import "mixins";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto|Open+Sans);
 
 /* for angular ui.bootstrap */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-.container {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
 .page {
-  @extend .row;
+  @include make-row();
 }
 
 .guild-block {
-  @extend .col-md-12;
-  @extend .frame-z1;
+  @include make-md-column(4);
+  // border: 1px solid #eee;
+  // border-left-width: 5px;
+  // border-left-color: #d9534f;
+  // border-radius: 3px;
   margin-top: 5px;
   margin-bottom: 5px;
+  article {
+    @include make-md-column(12);
+    // @extend .panel;
+    // @extend .panel-default;
+    @extend .frame-z1;
+  }
+  header {
+
+  }
+
+  section {
+  }
+
+  footer {
+
+  }
 }
 
 .main-content {
-  @extend .col-md-12;
+  @include make-md-column(12);
 }
 
 .left-content {
@@ -65,29 +80,29 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
+  padding-top: 70px; // for navbar-fixed-top
   padding-bottom: 20px;
-  @include background(image-url("crossword.png"));
+  @include background( image-url("crossword.png") );
 
-  header {
-    border-bottom: 1px solid #e5e5e5;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-      margin-top: 0;
-      margin-bottom: 0;
-      line-height: 40px;
-      padding-bottom: 19px;
-    }
-  }
-
-  footer {
-    margin-top: 30px;
+  .footer {
+    @include make-row();
+    margin-top: 5px;
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+    text-align: center;
 
-    @include center-block();
+    .footer-content {
+      @include make-md-column(12);
+      ul, li {
+        list-style-type: none;
+        display: inline-block;
+        padding: 0 10px;
+        i:hover {
+          color: black;
+        }
+      }
+    }
   }
 }
 

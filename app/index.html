@@ -24,46 +24,64 @@
     <!-- Add your site or application content here -->
     <div class="container">
 
-      <header>
-        <h3>KTS Landing Page</h3>
-      </header>
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavigationCtrl">
+        <div class="container">
+          <a class="navbar-brand" ng-href="#/">
+              KTS Landing Page
+          </a>
 
-      <ul class="nav nav-pills" ng-controller="NavigationCtrl">
-        <li ng-class="{active: isActive('/')}">
-          <a ng-href="#/">
-            <i class="fa fa-home"></i> <span ng-bind=" 'home' | i18n "></span>
-          </a>
-        </li>
-        <li ng-class="{active: isActive('/guilds')}">
-          <a ng-href="#/guilds">
-            <i class="glyphicon glyphicon-tower"></i> <span ng-bind=" 'guilds' | i18n "></span>
-          </a>
-        </li>
-        <li ng-class="{active: isActive('/about')}">
-          <a ng-href="#/about">
-            <i class="fa fa-info-circle"></i> <span ng-bind=" 'about' | i18n "></span>
-          </a>
-        </li>
-        <li class="pull-right" ng-class="{active: isActive('/login')}" ng-if="!loggedIn">
-          <a ng-href="#/login">
-            <span ng-bind=" 'login' | i18n "></span>
-          </a>
-        </li>
-        <li class="pull-right" ng-class="{active: isActive('/profile')}" ng-if="loggedIn">
-          <a ng-href="#/profile" style="padding: 0.44em 2em;">
-            {{ username }} <img class="img-circle" style="max-height: 2em; padding: 0em;" ng-src="{{userProfilePicture}}" alt="">
-          </a>
-        </li>
-      </ul>
+          <ul class="nav navbar-nav">
+            <li ng-class="{active: isActive('/')}">
+              <a ng-href="#/">
+                <i class="fa fa-home"></i> <span ng-bind=" 'home' | i18n "></span>
+              </a>
+            </li>
+            <li ng-class="{active: isActive('/guilds')}">
+              <a ng-href="#/guilds">
+                <i class="glyphicon glyphicon-tower"></i> <span ng-bind=" 'guilds' | i18n "></span>
+              </a>
+            </li>
+            <li ng-class="{active: isActive('/about')}">
+              <a ng-href="#/about">
+                <i class="fa fa-info-circle"></i> <span ng-bind=" 'about' | i18n "></span>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button class="btn btn-primary navbar-btn" ng-href="#/login" ng-if="!loggedIn">
+                <span ng-bind=" 'login' | i18n "></span>
+              </button>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" ng-if="loggedIn">
+                {{ username }}
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a ng-href="#/profile">Profile</a></li>
+                <li class="divider"></li>
+                <li><a href="#/">Log Out</a></li>
+              </ul>
+            </li>
+            <!-- <img class="img-circle" style="max-height: 2em; padding: 0em;" ng-src="{{userProfilePicture}}" alt=""> -->
+          </ul>
+
+        </div>
+      </nav>
 
       <div ng-view=""></div>
 
-      <footer>
-        <i class="fa fa-slack fa-3x"></i>
-        <i class="fa fa-github fa-3x"></i>
-        <i class="fa fa-trello fa-3x"></i>
+      <div class="footer">
+        <div class="footer-content">
+          <ul class="contact-icons">
+            <li><i class="fa fa-slack fa-3x"></i></li>
+            <li><i class="fa fa-github fa-3x"></i></li>
+            <li><i class="fa fa-trello fa-3x"></i></li>
+          </ul>
+        </div>
         <p><i class="glyphicon glyphicon-heart"></i> <span ng-bind=" 'credits' | i18n "></span></p>
-      </footer>
+      </div>
 
     </div>
 
