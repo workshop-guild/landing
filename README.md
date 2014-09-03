@@ -7,9 +7,13 @@ Starting the project
 ====================
 
 Windows users will need to have the following before running the commands:
+
 Git
+
 Ruby
+
 Python
+
 Node
 
 ```
