@@ -23,7 +23,7 @@ angular.module('landingApp')
           console.log($scope.password);
           $http({
               method: 'POST', 
-              url: 'http://localhost:8080/login',
+              url: 'http://10.25.15.90:8000/login',
               data: { 
                 email : username,
                 password : password
