@@ -17,7 +17,7 @@ if [ "${RESULT}" = "Already up-to-date." ]; then
 else
 	echo "---> New Changes Detected. Building..."
 	echo $RESULT
-	grunt build
+	grunt build --force
 	rm -rf ${DEPLOY_FOLDER}/views
 	mv dist ${DEPLOY_FOLDER}/views
 fi
