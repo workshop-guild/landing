@@ -15,7 +15,7 @@ angular.module('landingApp')
       
     $http({
         method: 'GET', 
-        url: 'http://10.25.15.90:8000/api/profile/me'
+        url: API_END_POINT + '/api/profile/me'
     })
     .success(function(data, status, headers, config) {
         console.log('success cb');
@@ -25,7 +25,7 @@ angular.module('landingApp')
             if (data.status == 0) {
                 var myDoc = data.data;
                 
-                $scope.userProfilePicture = 'http://10.25.15.90:8000/profile/967739706/profile.jpg';
+                $scope.userProfilePicture = API_END_POINT + '/profile/967739706/profile.jpg';
                 $scope.loggedIn = true;
                 $scope.username = myDoc._id;
             }
