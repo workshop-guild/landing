@@ -343,7 +343,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'i18n/*'
           ]
         }, {
           expand: true,
@@ -354,6 +355,11 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*',
+          dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/../bower_components/font-awesome',
+          src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
         }]
       },
@@ -412,7 +418,7 @@ module.exports = function (grunt) {
         options:{
           dest: '<%= yeoman.dist %>/scripts/config.js'
         },
-        constants: '<%= yeoman.dist %>/config/production.json'
+        constants: '<%= yeoman.app %>/config/production.json'
       }
     }
   });
